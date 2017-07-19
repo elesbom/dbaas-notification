@@ -1,8 +1,13 @@
 click==6.7
 Flask==0.12.2
-Flask-Redis==0.3.0
+Flask-And-Redis==0.7
 itsdangerous==0.24
 Jinja2==2.9.6
 MarkupSafe==1.0
 redis==2.10.5
 Werkzeug==0.12.2
+
+# Production
+gunicorn==19.7.1
+gevent==1.2.2
+greenlet==0.4.12

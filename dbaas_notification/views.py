@@ -9,7 +9,7 @@ class UserTasks(MethodView):
     def get(self, username):
         from dbaas_notification.app import redis_store
         keys = redis_store.keys("task_users:{}:*".format(username))
-        return json.jsonify(redis_store.mget(keys)) if keys else 'Nenhuma Task'
+        return json.jsonify(redis_store.mget(keys) if keys else [])
 
     def post(self, username):
         from dbaas_notification.app import redis_store

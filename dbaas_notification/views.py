@@ -16,5 +16,8 @@ class UserTasks(MethodView):
         from dbaas_notification.app import redis_store
         payload = request.data
         task_id = json.loads(payload)['task_id']
-        redis_store.set("task_users:{}:{}".format(username, task_id), payload, ex=os.getenv('REDIS_EXPIRES', 20))
+        redis_store.set(
+            "task_users:{}:{}".format(username, task_id),
+            payload, ex=os.getenv('REDIS_EXPIRES', 20)
+        )
         return 'ok', 200
